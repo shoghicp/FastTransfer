@@ -32,7 +32,7 @@ Works with Minecraft: PE 0.11.0 alpha build 6 or higher.
 
 ### Events
 
-* SimpleAuth\event\PlayerTransferEvent
+* shoghicp\FastTransfer\PlayerTransferEvent
 
 ### Plugin API methods
 
