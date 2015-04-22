@@ -101,7 +101,7 @@ class FastTransfer extends PluginBase{
 
 			$sender->sendMessage("Transferring player " . $target->getDisplayName() . " to $address:$port");
 			if(!$this->transferPlayer($target, $address, $port)){
-				$sender->sendMessage(TextFormat::RED . "An error happened during the transfer");
+				$sender->sendMessage(TextFormat::RED . "An error occurred during the transfer");
 			}
 
 			return true;
