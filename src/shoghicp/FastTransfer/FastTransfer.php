@@ -20,7 +20,6 @@ namespace shoghicp\FastTransfer;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\TranslationContainer;
-use pocketmine\level\Level;
 use pocketmine\network\Network;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
@@ -55,8 +54,10 @@ class FastTransfer extends PluginBase{
 		if($ip === null){
 			return false;
 		}
-
-		$this->cleanupMemory($player);
+		
+		if($message !== null and $message !== ""){
+			$player->sendMessage($message);	
+		}
 
 		$packet = new StrangePacket();
 		$packet->address = $ip;
@@ -135,16 +136,4 @@ class FastTransfer extends PluginBase{
 		$this->lookup[$address] = $host;
 		return $host;
 	}
-
-	private function cleanupMemory(Player $player){
-		foreach($player->usedChunks as $index => $c){
-			Level::getXZ($index, $chunkX, $chunkZ);
-			foreach($player->getLevel()->getChunkEntities($chunkX, $chunkZ) as $entity){
-				if($entity !== $this){
-					$entity->despawnFrom($player);
-				}
-			}
-		}
-	}
-
 }
