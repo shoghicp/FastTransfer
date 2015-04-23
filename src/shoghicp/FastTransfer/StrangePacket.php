@@ -32,7 +32,7 @@ class StrangePacket extends DataPacket{
 		$this->putByte($version);
 		if($version === 4){
 			foreach(explode(".", $addr) as $b){
-				$this->putByte((~((int) $b)) & 0xff);
+				$this->putByte(~((int) $b));
 			}
 			$this->putShort($port);
 		}else{
