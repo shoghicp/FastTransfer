@@ -24,6 +24,7 @@ use pocketmine\network\Network;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
+use pocketmine\utils\MainLogger;
 
 class FastTransfer extends PluginBase{
 
@@ -102,8 +103,8 @@ class FastTransfer extends PluginBase{
 
 			$sender->sendMessage("Transferring player " . $target->getDisplayName() . " to $address:$port");
 			if(!$this->transferPlayer($target, $address, $port)){
-				$sender->sendMessage(TextFormat::RED . "An error occurred during the transfer");
-			}
+				$sender->sendMessage(TextFormat::RED . "An error occurred during the transfer. Check console for more info.");
+$logger->info("The server" + $address:$port + "cannot be connected to. Contact the owner of that server.");			}
 
 			return true;
 		}
