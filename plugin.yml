@@ -1,5 +1,5 @@
 name: FastTransfer
-version: 1.0.1
+version: 1.0.2
 api: 1.12.0
 main: shoghicp\FastTransfer\FastTransfer
 load: STARTUP
