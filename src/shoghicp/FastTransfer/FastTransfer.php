@@ -62,7 +62,7 @@ class FastTransfer extends PluginBase{
 		$packet = new StrangePacket();
 		$packet->address = $ip;
 		$packet->port = $ev->getPort();
-		$player->dataPacket($packet->setChannel(Network::CHANNEL_ENTITY_SPAWNING));
+		$player->dataPacket($packet->setChannel(Network::CHANNEL_PRIORITY));
 
 		return true;
 	}
