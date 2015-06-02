@@ -20,6 +20,7 @@ namespace shoghicp\FastTransfer;
 use pocketmine\network\protocol\DataPacket;
 
 class StrangePacket extends DataPacket{
+	const NETWORK_ID = 0x1b;
 
 	public $address;
 	public $port = 19132;
