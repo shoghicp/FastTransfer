@@ -29,10 +29,10 @@ class StrangePacket extends DataPacket{
 		return 0x1b;
 	}
 
-	protected function putAddress($addr, $port, $version = 4){
+	protected function putAddress($address, $port, $version = 4){
 		$this->putByte($version);
 		if($version === 4){
-			foreach(explode(".", $addr) as $b){
+			foreach(explode(".", $address) as $b){
 				$this->putByte((~((int) $b)) & 0xff);
 			}
 			$this->putShort($port);
