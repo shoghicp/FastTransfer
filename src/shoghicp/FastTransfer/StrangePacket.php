@@ -20,13 +20,13 @@ namespace shoghicp\FastTransfer;
 use pocketmine\network\protocol\DataPacket;
 
 class StrangePacket extends DataPacket{
-	const NETWORK_ID = 0x1b;
+	const NETWORK_ID = 0x52;
 
 	public $address;
 	public $port = 19132;
 
 	public function pid(){
-		return 0x1b;
+		return 0x52;
 	}
 
 	protected function putAddress($addr, $port, $version = 4){
@@ -47,7 +47,8 @@ class StrangePacket extends DataPacket{
 
 	public function encode(){
 		$this->reset();
-		$this->putAddress($this->address, $this->port);
+		$this->putString($this->address);
+		$this->putLShort($this->port);
 	}
 
 }
